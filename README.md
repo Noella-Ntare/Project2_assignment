@@ -8,16 +8,16 @@
 ## How to Compile and Run
 
 ### Project 1
-gcc project1_student_records.c -o project1 -lm
-./project1
+gcc student_records.c -o student_records -lm
+./student_records
 
 ### Project 2
-gcc project2_text_intelligence.c -o project2
-./project2
+gcc text_intelligence.c -o text_intelligence
+./text_intelligence
 
 ### Project 3
-gcc project3_device_monitor.c -o project3
-./project3
+gcc device_monitor.c -o device_monitor
+./device_monitor
 
 ## Requirements
 - GCC compiler
