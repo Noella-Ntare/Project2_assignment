@@ -1,4 +1,4 @@
-# C Programming Projects
+# Project2_Assignment
 
 ## Projects
 - **Project 1** - Dynamic Student Record Engine
