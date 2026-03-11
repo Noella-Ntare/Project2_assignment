@@ -167,7 +167,7 @@ typedef void (*MenuFunction)();
 int main() {
  
     printf("  Dynamic Student Record Engine \n");
-    printf("  Student ID: [YOUR_STUDENT_ID] \n");
+    printf("  Student ID: 1005698443 \n");
     printf("  Analysis: Grade Stability Score\n");
    
 
