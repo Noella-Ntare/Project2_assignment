@@ -151,7 +151,7 @@ typedef void (*AnalysisFunc)();
 int main() {
   
     printf("  Adaptive Text Intelligence Tool\n");
-    printf("  Student ID: [YOUR_STUDENT_ID]\n");
+    printf("  Student ID: 1005698443\n");
     printf("  Custom Analysis: Avg Word Length\n");
 
     load_text();
