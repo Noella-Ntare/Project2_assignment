@@ -89,12 +89,9 @@ void random_reading(struct Device *dev) {
 
 int main() {
     srand(time(NULL));
-
-    printf("================================\n");
     printf("  Device Monitoring Simulator\n");
-    printf("  Student ID: [YOUR_STUDENT_ID]\n");
+    printf("  Student ID: 1005698443\n");
     printf("  Custom CB: Fault Detector\n");
-    printf("================================\n\n");
 
    
     struct Device catalogue[9] = {
