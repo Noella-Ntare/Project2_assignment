@@ -9,7 +9,6 @@ struct wordStat {
     int count;
 };
 
-
 char *text_buf = NULL;
 char **words = NULL;
 int word_count = 0;
@@ -25,18 +24,17 @@ char *sample = "It was the best of times it was the worst of times "
                "we had everything before us we had nothing before us "
                "we were all going direct to Heaven we were all going direct the other way";
 
-/* Load text and split into words*/
 void load_text() {
     int len = strlen(sample);
+    int i, wcount = 0;
 
-  
+
     text_buf = malloc(len + 1);
     strcpy(text_buf, sample);
     printf("Text buffer stored at memory address: %p\n", (void*)text_buf);
 
-    
-    int i, wcount = 0;
-    char temp[1000];
+ 
+    char temp[2000];
     strcpy(temp, text_buf);
     char *tok = strtok(temp, " ");
     while (tok != NULL) {
@@ -44,19 +42,19 @@ void load_text() {
         tok = strtok(NULL, " ");
     }
 
+  
     words = malloc(wcount * sizeof(char*));
     printf("Word array stored at memory address: %p\n", (void*)words);
-
 
     stats = malloc(wcount * sizeof(struct wordStat));
     printf("Stats array stored at memory address: %p\n", (void*)stats);
 
+  
     char *ptr = text_buf;
     char *end = text_buf + len;
     word_count = 0;
 
     while (ptr < end) {
-        /* skip spaces */
         while (ptr < end && !isalpha(*ptr)) ptr++;
         if (ptr >= end) break;
 
@@ -74,8 +72,7 @@ void load_text() {
         *(words + word_count) = word;
         word_count++;
     }
-
-  
+ 
     stat_count = 0;
     for (i = 0; i < word_count; i++) {
         char *w = *(words + i);
@@ -95,16 +92,17 @@ void load_text() {
         }
     }
 
-    printf("Text loaded: %d words, %d unique\n", word_count, stat_count);
+    printf("\nSample Text:\n\"%s\"\n", sample);
+    printf("\nWords: %d total, %d unique\n", word_count, stat_count);
 }
 
-/*  Count total and unique words */
+/* count total and unique words */
 void count_words() {
     printf("\nTotal words: %d\n", word_count);
     printf("Unique words: %d\n", stat_count);
 }
 
-/* Find the longest word */
+/* longest word  */
 void longest_word() {
     int i;
     char *longest = *(words);
@@ -116,7 +114,7 @@ void longest_word() {
     printf("\nLongest word: \"%s\" (%d letters)\n", longest, (int)strlen(longest));
 }
 
-/* Find the most frequent word*/
+/* frequent word */
 void most_frequent() {
     int i;
     struct wordStat *top = stats;
@@ -128,10 +126,9 @@ void most_frequent() {
     printf("\nMost frequent word: \"%s\" (appears %d times)\n", top->name, top->count);
 }
 
-/* Average Word Length  */
+/* average word length */
 void average_word_length() {
-    int i;
-    int total = 0;
+    int i, total = 0;
     for (i = 0; i < word_count; i++) {
         total += strlen(*(words + i));
     }
@@ -148,15 +145,14 @@ void average_word_length() {
         printf("Classification: Complex vocabulary\n");
 }
 
-
+/* function pointer type */
 typedef void (*AnalysisFunc)();
 
 int main() {
-   
+  
     printf("  Adaptive Text Intelligence Tool\n");
     printf("  Student ID: [YOUR_STUDENT_ID]\n");
     printf("  Custom Analysis: Avg Word Length\n");
-
 
     load_text();
 
@@ -193,7 +189,7 @@ int main() {
 
     } while (choice != 5);
 
-    /* free all memory */
+    /* free all dynamically allocated memory */
     int i;
     for (i = 0; i < word_count; i++) {
         free(*(words + i));
